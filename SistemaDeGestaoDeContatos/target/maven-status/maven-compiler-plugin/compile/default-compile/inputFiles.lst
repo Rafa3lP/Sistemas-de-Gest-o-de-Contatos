@@ -1,0 +1,11 @@
+/home/pingo/NetBeansProjects/mavenproject1/src/main/java/com/sistemadegestaodecontatos/presenter/PrincipalPresenter.java
+/home/pingo/NetBeansProjects/mavenproject1/src/main/java/com/sistemadegestaodecontatos/persistence/Serialization.java
+/home/pingo/NetBeansProjects/mavenproject1/src/main/java/com/sistemadegestaodecontatos/collection/Comparador.java
+/home/pingo/NetBeansProjects/mavenproject1/src/main/java/com/sistemadegestaodecontatos/collection/ContatoCollection.java
+/home/pingo/NetBeansProjects/mavenproject1/src/main/java/com/sistemadegestaodecontatos/view/IncluirContatoView.java
+/home/pingo/NetBeansProjects/mavenproject1/src/main/java/com/sistemadegestaodecontatos/model/Contato.java
+/home/pingo/NetBeansProjects/mavenproject1/src/main/java/com/sistemadegestaodecontatos/view/ConsultarContatoView.java
+/home/pingo/NetBeansProjects/mavenproject1/src/main/java/com/sistemadegestaodecontatos/presenter/ConsultarContatosPresenter.java
+/home/pingo/NetBeansProjects/mavenproject1/src/main/java/com/sistemadegestaodecontatos/presenter/IncluirContatoPresenter.java
+/home/pingo/NetBeansProjects/mavenproject1/src/main/java/com/sistemadegestaodecontatos/init/Initializer.java
+/home/pingo/NetBeansProjects/mavenproject1/src/main/java/com/sistemadegestaodecontatos/view/PrincipalView.java
