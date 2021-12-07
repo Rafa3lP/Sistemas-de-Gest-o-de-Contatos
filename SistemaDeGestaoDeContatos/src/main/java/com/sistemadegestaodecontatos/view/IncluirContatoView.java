@@ -1,7 +1,6 @@
 package com.sistemadegestaodecontatos.view;
 
 import javax.swing.JButton;
-import javax.swing.JTextField;
 
 
 public class IncluirContatoView extends javax.swing.JFrame {
@@ -28,6 +27,10 @@ public class IncluirContatoView extends javax.swing.JFrame {
     public javax.swing.JButton getBtnSalvar() {
         return btnSalvar;
     }
+    
+    public JButton getBtnEditar() {
+        return btnEditar;
+    }
 
    
     @SuppressWarnings("unchecked")
@@ -40,6 +43,7 @@ public class IncluirContatoView extends javax.swing.JFrame {
         txtTelefone = new javax.swing.JTextField();
         btnFechar = new javax.swing.JButton();
         btnSalvar = new javax.swing.JButton();
+        btnEditar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Inclusão de Pessoa");
@@ -52,6 +56,8 @@ public class IncluirContatoView extends javax.swing.JFrame {
         btnFechar.setText("Fechar");
 
         btnSalvar.setText("Salvar");
+
+        btnEditar.setText("Editar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -68,6 +74,8 @@ public class IncluirContatoView extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(btnEditar)
+                                .addGap(18, 18, 18)
                                 .addComponent(btnSalvar)
                                 .addGap(18, 18, 18)
                                 .addComponent(btnFechar))
@@ -91,7 +99,8 @@ public class IncluirContatoView extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnFechar)
-                    .addComponent(btnSalvar))
+                    .addComponent(btnSalvar)
+                    .addComponent(btnEditar))
                 .addGap(23, 23, 23))
         );
 
@@ -100,6 +109,7 @@ public class IncluirContatoView extends javax.swing.JFrame {
 
    
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnFechar;
     private javax.swing.JButton btnSalvar;
     private javax.swing.JLabel jblNome;
@@ -107,4 +117,6 @@ public class IncluirContatoView extends javax.swing.JFrame {
     private javax.swing.JTextField txtNome;
     private javax.swing.JTextField txtTelefone;
     // End of variables declaration//GEN-END:variables
+
+    
 }

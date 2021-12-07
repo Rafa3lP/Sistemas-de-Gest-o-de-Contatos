@@ -28,13 +28,11 @@ public class ConsultarContatosPresenter {
         view = new ConsultarContatoView();
 
         criarTabela(tmContatos, view);
-        atualizaNumeroTotal();
 
         view.getBntVisualizar().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                editar();
-                criarTabela(tmContatos, view);
+                visualizar();
             }
         });
 
@@ -47,7 +45,6 @@ public class ConsultarContatosPresenter {
                     if (resposta == 0) {
                         contatos.remove(row);
                         criarTabela(tmContatos, view);
-                        atualizaNumeroTotal();
                     }
                 }
             }
@@ -84,6 +81,8 @@ public class ConsultarContatosPresenter {
         );
 
         view.getTblContatos().setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        view.getTblContatos().getTableHeader().setReorderingAllowed(false);
+        view.getTblContatos().setColumnSelectionAllowed(false);
         total = 0;
         tmContatos.setNumRows(0);
         ListIterator<Contato> it = contatos.getContatos().listIterator();
@@ -95,6 +94,8 @@ public class ConsultarContatosPresenter {
         }
 
         view.getTblContatos().setModel(tmContatos);
+        
+        atualizaNumeroTotal();
 
     }
 
@@ -108,11 +109,15 @@ public class ConsultarContatosPresenter {
         criarTabela(tmContatos, view);
     }
 
-    private void editar() {
+    private void visualizar() {
         int row;
         row = view.getTblContatos().getSelectedRow();
         if (row != -1) {
-            viewInlcuir = new IncluirContatoPresenter(contatos, row);
+            /*
+            viewInlcuir = new IncluirContatoPresenter(contatos, row);*/
+            //chamar presenter de visualizar contato
+            new VisualizarContatoPresenter(contatos, row);
+            this.view.dispose();
         }
     }
 }

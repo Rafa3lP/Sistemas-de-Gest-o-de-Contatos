@@ -16,6 +16,9 @@ public class IncluirContatoPresenter {
     public IncluirContatoPresenter(ContatoCollection contatos) {
         this.Arraycontatos = contatos;
         view = new IncluirContatoView();
+        
+        //esconder o botao editar
+        this.view.getBtnEditar().setVisible(false);
 
         JButton fecha = view.getBtnFechar();
         fecha.addActionListener(new ActionListener() {
@@ -29,21 +32,18 @@ public class IncluirContatoPresenter {
         salva.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent clicado) {
-                try {
-                    salvar();
-                    fechar();
-                } catch (NumberFormatException e) {
-                    JOptionPane.showMessageDialog(view,
-                            "Informe apenas numeros",
-                            "Caracteres invalidos",
-                            JOptionPane.INFORMATION_MESSAGE);
-                }
+                salvar();
+                //fechar();
             }
         });
         view.setVisible(true);
     }
-
-    public IncluirContatoPresenter(ContatoCollection contatos, int posicao) {
+    /*
+    * possivel violação do Princípio de Responsabilidade Única (SRP)
+    * onde a classe incluirContatosPresenter Tembém tem o papel de visualizar 
+    * e editar um contato
+    */
+    /*public IncluirContatoPresenter(ContatoCollection contatos, int posicao) {
         this.Arraycontatos = contatos;
         view = new IncluirContatoView();
 
@@ -76,11 +76,10 @@ public class IncluirContatoPresenter {
     private void editar(int posicao) {
         String nome = view.getTxtNome().getText();
         String telefone = view.getTxtTelefone().getText();
-        verificaTipoTelefone(telefone);
         Contato contato = new Contato(nome, telefone);
 
         Arraycontatos.edit(posicao, contato);
-    }
+    }*/
 
     private void fechar() {
         view.dispose();
@@ -89,18 +88,34 @@ public class IncluirContatoPresenter {
     private void salvar() {
         String nome = view.getTxtNome().getText();
         String telefone = view.getTxtTelefone().getText();
-        verificaTipoTelefone(telefone);
         Contato contato = new Contato(nome, telefone);
+        
+        try {
+            
+            Arraycontatos.add(contato);
 
-        Arraycontatos.add(contato);
-
-        JOptionPane.showMessageDialog(view,
-                "Contato " + contato.getNome() + " salvo com sucesso!",
-                "Salvo com sucesso",
-                JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(view,
+                    "Contato " + contato.getNome() + " salvo com sucesso!",
+                    "Salvo com sucesso",
+                    JOptionPane.INFORMATION_MESSAGE);
+            
+            this.view.getTxtNome().setText("");
+            this.view.getTxtTelefone().setText("");
+            
+        } catch(Exception ex) {
+            JOptionPane.showMessageDialog(view,
+                ex.getMessage(),
+                "Erro",
+                JOptionPane.ERROR_MESSAGE);
+        }
+        
     }
 
+    /*
+    * possivel violação do principio da responsabilidade unica (SRP)
+    * onde a verificação do tipo de telefone deveria ser feita por ContatosCollection
+    *
     private void verificaTipoTelefone(String telefone) {
         int primeiroContato = Integer.parseInt(telefone);
-    }
+    }*/
 }

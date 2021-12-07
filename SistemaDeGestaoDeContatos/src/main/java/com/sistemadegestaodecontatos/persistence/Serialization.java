@@ -49,7 +49,7 @@ public class Serialization {
         } catch (ClassNotFoundException e) {
             System.out.println("Classe não enontrado");
         } catch (IOException e) {
-            System.out.println("Erro ao criar arquivo");
+            System.out.println("Erro ao criar arquivo" + e.getMessage());
         } finally {
             if (ois != null) {
                 try {
